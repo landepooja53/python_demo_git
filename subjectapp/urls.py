@@ -11,7 +11,7 @@ from .views import (
     add_subject_api,
     subject_detail_api,
 )
-
+#urls
 urlpatterns = [
     path('signup/', subject_signup_view, name='subject_signup'),
     path('login/', subject_login_view, name='subject_login'),
