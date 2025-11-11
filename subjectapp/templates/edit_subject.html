@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Subject</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f38292ff, #aeedfeff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+            width: 350px;
+            text-align: center;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            background: #007bff;
+            width: 95%;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Edit Subject</h2>
+    <form method="POST">
+        {% csrf_token %}
+      
+        <input type="text" name="name" value="{{ subject.name }}" required>
+        <input type="text" name="code" value="{{ subject.code }}" required>
+        <input type="number" name="credits" value="{{ subject.credits }}" required>
+
+        <button type="submit" class="btn">Update</button>
+    </form>
+    <a href="{% url 'subject_list' %}">Back to Subjects</a>
+</div>
+
+</body>
+</html>
